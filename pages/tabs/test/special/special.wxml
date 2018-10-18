@@ -1,0 +1,21 @@
+<!--pages/tabs/test/special/special.wxml-->
+<!-- <view wx:for="{{ exercise }}" wx:key="item" class="category_item"> -->
+<view>
+   <view class="exercise">
+   
+    <view class='content'>
+      <view wx:for="{{labArr}}" wx:key="key" wx:for-index="key" wx:for-item="v" class="exer_item">
+        <view class='lab' data-key="{{key}}" style="background-color:{{randomColorArr[key]}}">{{v.num}}</view>
+        <view class='exer_name'>{{v.name}}</view>
+        <view class='exer_count'>
+          <text>{{v.done}}</text>/
+          <text>{{v.total}}</text>
+        </view>
+      </view>
+    </view>
+
+      
+    </view>
+
+</view>
+

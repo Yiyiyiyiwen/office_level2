@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/tabs/test/exercise/exercise",
+    "pages/tabs/test/test",
+    "pages/tabs/test/special/special",
+    "pages/tabs/signup/signup",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/tabs/community/community",
+    "pages/tabs/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/tabs/signup/signup",
+        "text": "报名"
+      },
+      {
+        "pagePath": "pages/tabs/test/test",
+        "text": "考试"
+      },
+      {
+        "pagePath": "pages/tabs/community/community",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/tabs/my/my",
+        "text": "我的"
+      }
+    ]
+  }
+}

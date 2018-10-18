@@ -1,0 +1,44 @@
+
+
+/*顶部导航样式*/
+.navbar_baba{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+  .navbar{ 
+ flex: none; 
+ display: flex; 
+ z-index: 50; 
+ width: 300rpx;
+ border: 1rpx #00a9ee solid;
+ border-radius:50rpx;
+} 
+.navbar .item{ 
+ position: relative; 
+ flex: auto; 
+ text-align: center;
+ line-height: 60rpx; 
+ font-size: 24rpx;
+ color: #00a9ee;
+ font-family: Microsoft YaHei;
+} 
+.navbar .item.active{ 
+ color: white; 
+ font-size: 24rpx;
+ font-family: Microsoft YaHei;
+ background: #00a9ee;
+ border-radius: 50rpx;
+} 
+.navbar .item.active:after{ 
+ content: ""; 
+ display: block; 
+ position: absolute; 
+ bottom: 0; 
+ left: 0; 
+ right: 0; 
+ height: 4rpx; 
+ font-size: 24rpx;
+ color: #666666;
+ font-family: Microsoft YaHei;
+}
