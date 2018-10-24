@@ -1,99 +1,109 @@
 <!--pages/tabs/test/signup.wxml-->
 <view>
-    <swiper duration="1000" interval="3000" current="0" autoplay="true" class="swiper" indicator-dots='true' indicator-active-color='#ffffff'>
-        <swiper-item wx:for="{{slider}}" wx:key="item">
+  <swiper duration="1000" interval="3000" current="0" autoplay="true" class="swiper" indicator-dots='true' indicator-active-color='#ffffff'>
+    <swiper-item wx:for="{{slider}}" wx:key="item">
+      <view>
+        <view>
+          <navigator url="{{ item.url }}" hover-class="navigator-hover" class="slider_item">
+            <image class="slider_img" mode="scaleToFill" src="{{ item.img }}"></image>
+          </navigator>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!--上面的-->
+  <view class='buttons'>
+    <view class="buttons_left">
+      <view wx:for="{{ buttons_left }}" wx:key="item" class="category_item">
+        <navigator url="{{ item.url }}" hover-class="none">
+          <view>
+            <image src="{{ item.img }}" class="category_logo"></image>
             <view>
-                <view>
-                    <navigator url="{{ item.url }}" hover-class="navigator-hover" class="slider_item">
-                        <image class="slider_img" mode="scaleToFill" src="{{ item.img }}"></image>
-                    </navigator>
-                </view>
+              <text>{{ item.text }}</text>
             </view>
-        </swiper-item>
-    </swiper>
-
-<!--上面的-->
-    <view class='buttons'>
-      <view class="buttons_left">
-        <view wx:for="{{ buttons_left }}" wx:key="item" class="category_item">
-         <navigator url="{{ item.url }}" hover-class="navigator-hover">
-             <view class="">
-                 <image src="{{ item.img }}" class="category_logo"></image>
-                 <view><text>{{ item.text }}</text></view>
-             </view>
-         </navigator>
-        </view>
+          </view>
+        </navigator>
       </view>
+    </view>
 
-      <view class='buttons_middle'>
+    <view class='buttons_middle'>
+
+      <navigator url='exercise/exercise' hover-class="none">
         <view class="container">
-            <view class='progress_box'>
-                <canvas class="progress_bg"   canvas-id="canvasProgressbg">  </canvas>
-                <canvas class="progress_canvas"   canvas-id="canvasProgress">  </canvas> 
-                <view class="progress_text">
-                    <text class='progress_info'> {{progress_txt}}</text>
-                    <view><text>{{ques_order_0}}</text>/<text>{{ques_outoforder_0}}</text></view>
-                </view>
+          <view class='progress_box'>
+            <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
+            <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
+            <view class="progress_text">
+              <text class='progress_info'> {{progress_txt}}</text>
+              <view>
+                <text>{{ques_order_0}}</text>/
+                <text>{{ques_outoforder_0}}</text>
+              </view>
             </view>
-            <!-- <view class='progress_box'>
-                <canvas class="progress_bg"   canvas-id="canvasProgressbg2">  </canvas>
-                <canvas class="progress_canvas"   canvas-id="canvasProgress2">  </canvas> 
-                <view class="progress_text">
-                    <text class='progress_info'> {{progress_txt2}}</text>
-                    <view><text>{{ques_order_1}}</text>/<text>{{ques_outoforder_1}}</text></view>
-                </view>
-            </view> -->
+          </view>
         </view>
-      </view>
+      </navigator>
 
-      
-      <view class='buttons_right'>
-        <view wx:for="{{ buttons_right }}" wx:key="item" class="category_item">
-         <navigator url="{{ item.url }}" hover-class="navigator-hover">
-             <view class="">
-                 <image src="{{ item.img }}" class="category_logo"></image>
-                 <view><text>{{ item.text }}</text></view>
-             </view>
-         </navigator>
+    </view>
+
+
+    <view class='buttons_right'>
+      <view wx:for="{{ buttons_right }}" wx:key="item" class="category_item">
+        <navigator url="{{ item.url }}" hover-class="none">
+          <view>
+            <image src="{{ item.img }}" class="category_logo"></image>
+            <view>
+              <text>{{ item.text }}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!--下面的-->
+  <view class='buttons'>
+    <view class="buttons_left">
+      <view wx:for="{{ buttons_left2 }}" wx:key="item" class="category_item item_down">
+        <navigator url="{{ item.url }}" hover-class="none">
+          <view class="">
+            <image src="{{ item.img }}" class="category_logo"></image>
+            <view>
+              <text>{{ item.text }}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <view class='buttons_middle'>
+      <view class="container">
+        <view class='progress_box'>
+          <canvas class="progress_bg" canvas-id="canvasProgressbg2"> </canvas>
+          <canvas class="progress_canvas" canvas-id="canvasProgress2"> </canvas>
+          <view class="progress_text">
+            <text class='progress_info'> {{progress_txt2}}</text>
+            <view>
+              <text>{{ques_order_1}}</text>/
+              <text>{{ques_outoforder_1}}</text>
+            </view>
+          </view>
         </view>
       </view>
     </view>
-    <!--下面的-->
-    <view class='buttons'>
-      <view class="buttons_left">
-        <view wx:for="{{ buttons_left2 }}" wx:key="item" class="category_item item_down">
-         <navigator url="{{ item.url }}" hover-class="navigator-hover">
-             <view class="">
-                 <image src="{{ item.img }}" class="category_logo"></image>
-                 <view><text>{{ item.text }}</text></view>
-             </view>
-         </navigator>
-        </view>
-      </view>
 
-      <view class='buttons_middle'>
-        <view class="container">
-            <view class='progress_box'>
-                <canvas class="progress_bg"   canvas-id="canvasProgressbg2">  </canvas>
-                <canvas class="progress_canvas"   canvas-id="canvasProgress2">  </canvas> 
-                <view class="progress_text">
-                    <text class='progress_info'> {{progress_txt2}}</text>
-                    <view><text>{{ques_order_1}}</text>/<text>{{ques_outoforder_1}}</text></view>
-                </view>
+
+    <view class='buttons_right'>
+      <view wx:for="{{ buttons_right2 }}" wx:key="item" class="category_item item_down">
+        <navigator url="{{ item.url }}" hover-class="none">
+          <view class="">
+            <image src="{{ item.img }}" class="category_logo"></image>
+            <view>
+              <text>{{ item.text }}</text>
             </view>
-        </view>
-      </view>
-
-      
-      <view class='buttons_right'>
-        <view wx:for="{{ buttons_right2 }}" wx:key="item" class="category_item item_down">
-         <navigator url="{{ item.url }}" hover-class="navigator-hover">
-             <view class="">
-                 <image src="{{ item.img }}" class="category_logo"></image>
-                 <view><text>{{ item.text }}</text></view>
-             </view>
-         </navigator>
-        </view>
+          </view>
+        </navigator>
       </view>
     </view>
+  </view>
 </view>

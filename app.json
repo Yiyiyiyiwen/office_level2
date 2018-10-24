@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/tabs/signup/signup",
     "pages/tabs/test/exercise/exercise",
     "pages/tabs/test/test",
     "pages/tabs/test/special/special",
-    "pages/tabs/signup/signup",
     "pages/index/index",
     "pages/logs/logs",
     "pages/tabs/community/community",

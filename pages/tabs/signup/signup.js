@@ -1,4 +1,5 @@
 // pages/tabs/signup/signup.js
+var utils = require('../../../utils/util.js')
 Page({
 
   /**
@@ -12,7 +13,48 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(utils.baseURL)
+    var baseURL = utils.baseURL
+    wx.login({
+      success:function(res){
+        var code = res.code
+        wx.getUserInfo({
+          success:function(res){
+            console.log(res.userInfo)
+            wx.request({
+              url: baseURL + '/api/user/login?code=' + code,
+              data:{
+                code:code,
+
+              },
+              success:function(res){
+                if(res.statusCode&&res.statusCode=='200'){
+                  console.log("登陆成功哈哈哈哈哈哈哈哈哈哈哈")
+                  console.log(res)
+                }
+              },
+              fail:function(){
+                console.log("登陆失败")
+              }
+            })
+          }
+        })
+      }
+    })
+
+    wx.request({
+      url: baseURL +'/api/user/temp',
+      method:"GET",
+      data:{
+        token: 741852963
+      },
+      success:function(res){
+        console.log(res.data)
+      },
+      fail:function(){
+        console.log('request fail')
+      }
+    })
   },
 
   /**

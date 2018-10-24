@@ -14,6 +14,9 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+var baseURL ='http://47.96.155.137:8080'
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  baseURL:baseURL
 }

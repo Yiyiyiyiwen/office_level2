@@ -5,6 +5,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 10rpx;
 }
   .navbar{ 
  flex: none; 
@@ -13,6 +14,7 @@
  width: 300rpx;
  border: 1rpx #00a9ee solid;
  border-radius:50rpx;
+  overflow: hidden;
 } 
 .navbar .item{ 
  position: relative; 
@@ -28,7 +30,6 @@
  font-size: 24rpx;
  font-family: Microsoft YaHei;
  background: #00a9ee;
- border-radius: 50rpx;
 } 
 .navbar .item.active:after{ 
  content: ""; 
@@ -41,4 +42,223 @@
  font-size: 24rpx;
  color: #666666;
  font-family: Microsoft YaHei;
+}
+.type{
+  width: 112rpx;
+  height: 40rpx;
+  font-size: 25rpx;
+  color: white;
+  border-radius: 8rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin-left: 40rpx;
+  margin-right: 22rpx;
+  background: linear-gradient(to right, #00dee5,#1d98de);
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+  background: #e1e1e1;
+  margin: 20rpx 0 40rpx 0;
+}
+.line2{
+  height: 2rpx;
+  flex-grow: 1;
+  background: #e1e1e1;
+  margin: 0 30rpx;
+}
+.answer{
+  align-items: center;
+  color: black;
+  display: flex;
+  width: 100%;
+  padding: 13rpx 30rpx
+}
+.choose,.right_answer,.wrong_answer{
+  border-radius: 50%;
+  border: 5rpx #ededed solid;
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: black;
+  line-height: 65rpx;
+  text-align: center;
+  margin-left: 10rpx;
+  margin-right: 25rpx;
+}
+.right_answer{
+  background: #00a9ee;
+  color: white;
+  border: 5rpx #00a9ee solid;
+}
+.wrong_answer{
+  background: red;
+  color: white;
+  border: 5rpx red solid;
+}
+.answer_text{
+  font-size: 32rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+}
+.myquestion{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+  margin-bottom: 20rpx;
+}
+.explain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: gray;
+}
+.explain_describe{
+  font-size: 28rpx;
+  text-indent:2em;
+  padding: 20rpx 40rpx;
+}
+.statistics_left image,.statistics_right image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.statistics_left,.statistics_right{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  flex-grow: 1;
+  text-align: center;
+  justify-content: center;
+}
+.statistics{
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+.vertical_line{
+  width: 3rpx;
+  background: #e1e1e1;
+}
+.no_note{
+  color: #00a9ee;
+  font-size: 25rpx;
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.have_note{
+  display: none;
+}
+.note_add{
+  font-size: 25rpx;
+  padding: 20rpx;
+}
+.bottom image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 7rpx;
+}
+.collection{
+}
+.bottom{
+  display: flex;
+  font-size: 25rpx;
+  color:gray;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx #e1e1e1 solid;
+  position: fixed;
+  bottom: 0;
+  padding:20rpx 0;
+  width: 100%;
+}
+.bottom_right{
+  display: flex;
+  align-items: center;
+}
+.collection,.right_total,.wrong_total,.exer_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.collection{
+  margin-left: 20rpx;
+}
+.exer_list{
+  margin-right: 20rpx;
+}
+.right_total{
+  color: green
+}
+.wrong_total{
+  color: red;
+}
+.ques_right{
+  visibility: visible;
+}
+.ques_wrong{
+  visibility: hidden;
+}
+.days{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: flex-end;
+}
+.is_bind_show{
+  visibility: visible
+}
+.is_bind_hide{
+  visibility: hidden;
+}
+.choose_day{
+  width: 100%;
+  font-size: 25rpx;
+  color: #666666;
+  background: #f2f2f2;
+  padding: 20rpx;
+}
+.tip{
+  width: 100%;
+  text-align: right;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx #e1e1e1 solid;
+}
+.day_item{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: white;
+  border: 2rpx #dddddd solid;
+  display: flex;
+  margin: 10rpx;
+  align-items: center;
+  justify-content: center;
+}
+.day_total{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+.day_item_active{
+  background: #dddddd;
+  border: 2rpx #dddddd solid;
+}
+.swiper,.swiper_item{
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  left: 0;
 }

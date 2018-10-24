@@ -10,16 +10,247 @@
     </view>
   </view>
 </view>
+<view class='line'></view>
 
-
-<!--半月维保-->
+<!--答题模式-->
 <view hidden="{{currentTab !== 0}}" id="one">
-  <view wx:for="{{exercise}}" wx:key="item">
-    {{item.type}}
+
+  <swiper class='swiper' bindchange='onSlideChangeEnd' current='0'>
+    <block wx:for="{{my_swiper}}" wx:key="*this">
+      <swiper-item wx:key="index" class='swiper'>
+        <view wx:for="{{item.exercise}}" wx:key="index" wx:for-item="exercise">
+          <view class='myquestion'>
+            <view class='type'>
+              {{exercise.type}}
+            </view>
+            <view>{{exercise.number}}.{{exercise.question}}</view>
+          </view>
+        </view>
+
+
+        <view wx:for="{{item.answer_four}}" wx:key="index" wx:for-item="answer_four">
+          <view class='answer' bindtap='chooseanswer' data-index="{{index}}">
+            <view class="choose {{item.currentTab2==index?'right_answer':''||item.currentTab3==index?'wrong_answer':''}}">
+
+              {{answer_four.choose}}
+            </view>
+            <view class='answer_text'>
+              {{answer_four.answer}}
+            </view>
+          </view>
+        </view>
+
+        <view class="{{item.if_right==0?'ques_right':'ques_wrong'}}">
+          <view class='explain'>
+            <view class='line2'></view>
+            <view>试题解析</view>
+            <view class='line2'></view>
+          </view>
+
+
+
+          <view class='explain_describe'>
+            你答对啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+          </view>
+
+          <view class='explain'>
+            <view class='line2'></view>
+            <view>试题统计</view>
+            <view class='line2'></view>
+          </view>
+
+          <view class='statistics'>
+            <view class='statistics_left'>
+              <image src='../../../resources/jiakao_ic_zuoti_wzcg.png'></image>
+              <view>我已经做过{{havedone_count}}次</view>
+            </view>
+            <view class='vertical_line'></view>
+            <view class='statistics_left'>
+              <image src='../../../resources/jiakao_ic_zuoti_kycwl.png'></image>
+              <view>正确率是{{right_rate}}%</view>
+            </view>
+          </view>
+
+
+
+          <view class='explain'>
+            <view class='line2'></view>
+            <view>学习笔记</view>
+            <view class='line2'></view>
+          </view>
+
+
+          <view class='note'>
+            <view class='{{item.if_note}}' bindtap='showmodel'>
+              暂无笔记，点击添加笔记
+            </view>
+            <view class='note_add'  data-index="{{index}}" wx:key="index" wx:for-item="add_note">
+              <!-- {{item.index}}. -->
+              {{item.note}}
+            </view>
+          </view>
+        </view>
+
+
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <modal hidden="{{hiddenmodalput}}" title="请输入笔记" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input type='text' placeholder="请输入内容" bindinput='myinput' name="note" value='{{searchinput}}'/>
+  </modal>
+
+  <view class='bottom'>
+    <view class='collection' bindtap='changeimg'>
+      <image src='{{collection_image}}'></image>
+      收藏
+    </view>
+    <view class='bottom_right'>
+      <view class='right_total'>
+        <image src='../../../resources/jiakao_practice_icon_true_day.png'></image>
+        {{right_total}}
+      </view>
+      <view class='wrong_total'>
+        <image src='../../../resources/jiakao_practice_icon_false_day.png'></image>
+        {{wrong_total}}
+      </view>
+      <view class='exer_list' bindtap='show_days'>
+        <image src='../../../resources/jiakao_practice_icon_card_day.png'></image>
+        {{current}}/{{exer_total}}
+      </view>
+    </view>
+
+  </view>
+
+
+
+</view>
+
+
+
+<!--弹出层-->
+<view class="days {{is_bind_true?'is_bind_show':'is_bind_hide'}}" bindtap='showdays'>
+  <view class='choose_day'>
+    <view class='tip'>
+      Tip：点击上方任意区域返回答题页面
+    </view>
+    <view class='day_total'>
+      <view class="day_item {{is_choose_day?'day_item_active':''}}" wx:for="{{day_item}}" wx:key="item" data-idx="{{index}}" hover-class='day_item_active' bindtap='changecurrentpage'>
+        {{item.day}}
+      </view>
+    </view>
+
   </view>
 </view>
 
-<!--月度维保-->
+
+
+
+
+<!-------------------------------------------------------------------->
+<!--学习模式-->
 <view hidden="{{currentTab !== 1}}" id="one">
-  <template is="list" data="{{maintainRecordlist}}" />
+  <swiper class='swiper' bindchange='onSlideChangeEnd' current='0'>
+    <block wx:for="{{my_swiper}}" wx:key="*this">
+      <swiper-item wx:key="index" class='swiper'>
+        <view wx:for="{{item.exercise}}" wx:key="index" wx:for-item="exercise">
+          <view class='myquestion'>
+            <view class='type'>
+              {{exercise.type}}
+            </view>
+            <view>{{exercise.number}}.{{exercise.question}}</view>
+          </view>
+        </view>
+
+
+        <view wx:for="{{item.answer_four}}" wx:key="unique" wx:for-item="answer_four">
+          <view class='answer' data-index="{{index}}">
+            <view class="choose {{current_right_choose==index?'right_answer':''||currentTab3==index?'wrong_answer':''}}">
+
+              {{answer_four.choose}}
+            </view>
+            <view class='answer_text'>
+              {{answer_four.answer}}
+            </view>
+          </view>
+        </view>
+
+        <view class='explain'>
+          <view class='line2'></view>
+          <view>试题解析</view>
+          <view class='line2'></view>
+        </view>
+
+
+
+        <view class='explain_describe'>
+          你答对啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        </view>
+
+        <view class='explain'>
+          <view class='line2'></view>
+          <view>试题统计</view>
+          <view class='line2'></view>
+        </view>
+
+        <view class='statistics'>
+          <view class='statistics_left'>
+            <image src='../../../resources/jiakao_ic_zuoti_wzcg.png'></image>
+            <view>我已经做过{{havedone_count}}次</view>
+          </view>
+          <view class='vertical_line'></view>
+          <view class='statistics_left'>
+            <image src='../../../resources/jiakao_ic_zuoti_kycwl.png'></image>
+            <view>正确率是{{right_rate}}%</view>
+          </view>
+        </view>
+
+
+
+        <view class='explain'>
+          <view class='line2'></view>
+          <view>学习笔记</view>
+          <view class='line2'></view>
+        </view>
+
+
+        <view class='note'>
+          <view class='{{item.if_note}}' bindtap='showmodel'>
+            暂无笔记，点击添加笔记
+          </view>
+          <view class='note_add' wx:for="{{item.add_note}}" data-index="{{index}}" wx:key="index" wx:for-item="add_note">
+            <!-- {{item.index}}. -->
+            {{add_note.note}}
+          </view>
+        </view>
+
+
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <modal hidden="{{hiddenmodalput}}" title="请输入笔记" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input type='text' placeholder="请输入内容" bindinput='myinput' name="note" />
+  </modal>
+  <view class='bottom'>
+    <view class='collection' bindtap='changeimg'>
+      <image src='{{collection_image}}'></image>
+      收藏
+    </view>
+    <view class='bottom_right'>
+      <view class='right_total'>
+        <image src='../../../resources/jiakao_practice_icon_true_day 2.png'></image>
+        {{right_total}}
+      </view>
+      <view class='wrong_total'>
+        <image src='../../../resources/jiakao_practice_icon_false_day 2.png'></image>
+        {{wrong_total}}
+      </view>
+      <view class='exer_list' bindtap='show_days'>
+        <image src='../../../resources/jiakao_practice_icon_card_day.png'></image>
+        {{current}}/{{exer_total}}
+      </view>
+    </view>
+
+  </view>
 </view>
