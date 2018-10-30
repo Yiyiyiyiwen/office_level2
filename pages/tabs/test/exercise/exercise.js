@@ -1,4 +1,5 @@
 // pages/tabs/test/exercise/exercise.js
+var utils = require('../../../../utils/util.js')
 Page({
 
   /**
@@ -205,6 +206,7 @@ Page({
   //跳转题目
   changecurrentpage:function(e){
     //TODO
+    
   },
 
   
@@ -283,7 +285,6 @@ Page({
       current_right_choose: exchange_choose
     })
     console.log(that.data.current_right_choose)
-
   },
 
   /**

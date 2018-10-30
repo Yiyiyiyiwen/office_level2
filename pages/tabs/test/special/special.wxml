@@ -8,7 +8,7 @@
         <view class='lab' data-key="{{key}}" style="background-color:{{randomColorArr[key]}}">{{v.num}}</view>
         <view class='exer_name'>{{v.name}}</view>
         <view class='exer_count'>
-          <text>{{v.done}}</text>/
+          <text>{{v.done}}</text> /
           <text>{{v.total}}</text>
         </view>
       </view>

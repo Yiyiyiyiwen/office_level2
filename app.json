@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/tabs/signup/signup",
-    "pages/tabs/test/exercise/exercise",
     "pages/tabs/test/test",
     "pages/tabs/test/special/special",
+    "pages/tabs/my/my",
+    "pages/tabs/test/exercise/exercise",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/tabs/community/community",
-    "pages/tabs/my/my"
+    "pages/tabs/community/community"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,16 +17,12 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/tabs/signup/signup",
-        "text": "报名"
-      },
-      {
         "pagePath": "pages/tabs/test/test",
         "text": "考试"
       },
       {
         "pagePath": "pages/tabs/community/community",
-        "text": "社区"
+        "text": "资讯"
       },
       {
         "pagePath": "pages/tabs/my/my",

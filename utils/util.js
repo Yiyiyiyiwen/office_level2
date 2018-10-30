@@ -15,8 +15,9 @@ const formatNumber = n => {
 }
 
 var baseURL ='http://47.96.155.137:8080'
-
+var debug = false;
 module.exports = {
   formatTime: formatTime,
-  baseURL:baseURL
+  baseURL:baseURL,
+  debug:debug
 }

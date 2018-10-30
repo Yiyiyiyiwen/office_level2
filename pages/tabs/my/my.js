@@ -5,7 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    head:'../../resources/lemon.png',
+    exer_type:'小车题库',
+    record:[
+      {
+        number:0,
+        title:'已做题',
+        describe:'共1334题'
+      },
+      {
+        number: 0,
+        title: '考试平均分',
+        describe: '完成考试0次'
+      },
+      {
+        number: 0,
+        title: '已做题',
+        describe: '完成考试0次'
+      }
+    ],
+    buttons:[
+      {
+        icon: '../../resources/lemon.png',
+        text:'我的收藏',
+      },
+      {
+        icon: '../../resources/lemon.png',
+        text: '设置',
+      }
+    ]
   },
 
   /**

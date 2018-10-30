@@ -1,2 +1,42 @@
 <!--pages/tabs/my/my.wxml-->
-<text>pages/tabs/my/my.wxml</text>
+<view class='total'>
+
+  <view class='top'>
+    <view class='head'>
+      <image src='{{head}}'></image>
+      <view>立即登录</view>
+    </view>
+    <image src='../../resources/lemon.png' class='chat'></image>
+    <view class='update'>
+      <image src='../../resources/lemon.png'></image>
+      <text>同步学习进度</text>
+    </view>
+  </view>
+
+  <view class='change'>
+    <image src='../../resources/lemon.png'></image>
+    <text class='dtjl'>答题记录</text>
+    <view class='exer_change'>
+      <text>切换：</text>
+      <text>{{exer_type}}</text>
+      <text> ></text>
+    </view>
+  </view>
+
+  <view class='record'>
+    <view class='record_item' wx:for="{{record}}" wx:key="item">
+      <view class='record_data'>{{item.number}}</view>
+      <view class='title'>{{item.title}}</view>
+      <view class='describe'>{{item.describe}}</view>
+    </view>
+  </view>
+
+  <view class='buttons'>
+    <view class='buttons_item' wx:for="{{buttons}}" wx:key="item">
+      <image src='{{item.icon}}' class='buttons_icon'></image>
+      <view>{{item.text}}</view>
+      <view class='jump'>></view>
+    </view>
+  </view>
+</view>
+
